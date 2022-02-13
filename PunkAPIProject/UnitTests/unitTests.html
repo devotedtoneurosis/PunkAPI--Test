@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<head>
+    <title>PunkAPIProject Unit Tests</title>
+</head>
+<body>
+
+    <div>
+        <h2>Add a Valid Rating</h2>
+        Beer ID:<input type="text" id="beerId" size="5" />
+        <input type="button" value="Add" onclick="validAdd();" />
+        <p id="validAddResponse" />
+    </div>
+    <div>
+        <h2>Add a Rating with an email issue</h2>
+        <input type="button" value="Add" onclick="invalidEmailAdd();" />
+        <p id="invalidEmailResponse" />
+    </div>
+    <div>
+        <h2>Add a Rating score issue</h2>
+        <input type="button" value="Add" onclick="invalidRatingAdd();" />
+        <p id="invalidRatingResponse" />
+    </div>
+    <div>
+        <h2>Beer Rating Search</h2>
+        <input type="text" id="beerName" size="5" />
+        <input type="button" value="Search" onclick="find();" />
+        <p id="rating" />
+    </div>
+
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        var uri = 'http://localhost:64937/';
+
+        $(document).ready(function () {
+            // Send an AJAX request
+            $.getJSON(uri)
+                .done(function (data) {
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        // Add a list item for the product.
+                        $('<li>', { text: formatItem(item) }).appendTo($('#ratings'));
+                    });
+                });
+        });
+
+        function validAdd() {
+            var jqxhr = $.post(uri + 'postrating/' + $('#beerId').val(), { username: 'test@test.com', rating: 4, comments: 'This one is quality!' })
+                .success(function () {
+                    $('#validAddResponse').text("success!");
+                })
+                .error(function () {
+                    $('#validAddResponse').text("failure");
+                });
+        }
+
+        function invalidEmailAdd() {
+            var jqxhr = $.post(uri + 'postrating/' + $('#beerId').val(), { username: 'testtest.com', rating: 4, comments: 'This one is quality!' })
+                .success(function () {
+                    $('#invalidEmailResponse').text("success!");
+                })
+                .error(function () {
+                    $('#invalidEmailResponse').text("failure");
+                });
+        }
+
+        function invalidRatingAdd() {
+            var jqxhr = $.post(uri + 'postrating/' + $('#beerId').val(), { username: 'test@test.com', rating: 80, comments: 'This one is quality!' })
+                .success(function () {
+                    $('#invalidRatingResponse').text("success!");
+                })
+                .error(function () {
+                    $('#invalidRatingResponse').text("failure");
+                });
+        }
+
+
+        function find() {
+            var partName = $('#beerName').val();
+            $.getJSON(uri + 'getratings/' + partName)
+                .done(function (data) {
+                    $('#rating').text(JSON.stringify(data));
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#rating').text('Error: ' + err);
+                });
+        }
+    </script>
+</body>
+</html>
