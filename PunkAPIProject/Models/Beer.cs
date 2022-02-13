@@ -32,6 +32,22 @@ namespace PunkAPIProject
         public string comments { get; set; }
     }
 
+    //The standard Rating class is more useful for regular application usage and database storage, however,
+    //the API spec document indicates that id should not be shown in displayed rating collections. For this
+    //purpose, we use DisplayRating
+    public class DisplayRating
+    {
+        public DisplayRating(string un, int r, string com)
+        {
+            username = un;
+            rating = r;
+            comments = com;
+        }
+        public string username { get; set; }
+        public int rating { get; set; }
+        public string comments { get; set; }
+    }
+
     public class RatingSearchResult
     {
         public RatingSearchResult(Beer b, List<Rating> rL)
@@ -39,12 +55,18 @@ namespace PunkAPIProject
             id = b.id;
             name = b.name;
             description = b.description;
-            userRatings = rL;
+
+            if (rL != null && rL.Count > 0)
+            {
+                //convert Rating list to a DisplayRating for instant API display according to specification documents.
+                userRatings = new List<DisplayRating>();
+                for (int i = 0; i < rL.Count; i++) { userRatings.Add(new DisplayRating(rL[i].username, rL[i].rating, rL[i].comments)); }
+            }
         }
 
         public int id;
         public string name;
         public string description;
-        public List<Rating> userRatings;
+        public List<DisplayRating> userRatings;
     }
 }

@@ -10,9 +10,12 @@ namespace PunkAPIProject.Filters
 {
     public class UsernameActionFilter : ActionFilterAttribute, IActionFilter
     {
+        //The specification for the API stated to use RegEx however recent years have made email addresses available
+        //that are not easily caught as valid based on historical Regexes, this may be revisited in a future release.
         string emailRegex = @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*"
                         + "@"
                         + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))\z";
+
 
         void IActionFilter.OnActionExecuting(ActionExecutingContext filterContext)
         {

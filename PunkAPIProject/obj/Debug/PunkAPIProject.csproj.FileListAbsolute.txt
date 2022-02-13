@@ -157,7 +157,6 @@ C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\bin\Syste
 C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\bin\System.Web.WebPages.Razor.xml
 C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\bin\Antlr3.Runtime.pdb
 C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\obj\Debug\PunkAPIProject.csprojAssemblyReference.cache
 C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\obj\Debug\PunkAPIProject.csproj.CoreCompileInputs.cache
 C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\obj\Debug\PunkAPIProject.csproj.CopyComplete
 C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\obj\Debug\PunkAPIProject.dll
