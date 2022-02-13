@@ -29,16 +29,18 @@
 <h3>Posting Reviews</h3>
 <p>Users can post a rating to the database using a HTTP POST with a beer id URL parameter and JSON request body which includes the following properties: username, rating, comments.</p>
 
-Sample:
+Sample:</br>
 username: 'test@test.com', rating: 4, comments: 'This one is quality!'
 
 <p>The username must be a valid email address and the rating must be an integer between 0 and 5.</p>
 
 # For Developers
+<h3>Deployment</h3>
+<p>After pulling from this repo, the project can be run locally through the IDE using IISExpress. For unit tests, Google Chrome and/or Firefox are recommended</p>
 
 <h3>Data Store</h3>
 <p>Data is stored in a JSON database file. Any ratings posted by users will be stored here. By default, the file is created in the following location:</p>
-%APPDATA%\Roaming\PunkAPIProject\database.json
+%APPDATA%\Roaming\PunkAPIProject\database.json</br>
 
 <p>Here is a sample of a stored rating in the file:</p>
 [
@@ -48,7 +50,7 @@ username: 'test@test.com', rating: 4, comments: 'This one is quality!'
 		"rating": 4,
 		"comments": "This one is quality!"
 	}
-]
+]</br>
 
 <p>The passed username must pass a RegEx expression to conform to typical email address standards, and rating values must be integers between 0 and 5.</p>
 
