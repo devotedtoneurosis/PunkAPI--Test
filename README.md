@@ -36,7 +36,7 @@ username: 'test@test.com', rating: 4, comments: 'This one is quality!'
 
 # For Developers
 <h3>Deployment</h3>
-<p>After pulling from this repo, the project can be run locally through the IDE using IISExpress. For unit tests, Google Chrome and/or Firefox are recommended</p>
+<p>After pulling from this repo, the project can be run locally through the IDE using IISExpress or built and deployed to a full IIS implementation. For unit tests, Google Chrome and/or Firefox are recommended.</p>
 
 <h3>Data Store</h3>
 <p>Data is stored in a JSON database file. Any ratings posted by users will be stored here. By default, the file is created in the following location:</p>
