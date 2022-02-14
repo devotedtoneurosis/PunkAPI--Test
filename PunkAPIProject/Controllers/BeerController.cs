@@ -23,10 +23,12 @@ namespace PunkAPIProject.Controllers
 
         //Retrieve ratings left by ohter users for the beer the user searches for (using a partial or full name)
         [HttpGet]
-        public string GetRatings(string name)
+        public string GetRatings()
         {
+            string beerName = Request.Params.Get("q");
+
             //grab beers with matching names from the PunkAPI resource
-            List<Beer> beerList = punkAPIController.GetBeersByName(name);
+            List<Beer> beerList = punkAPIController.GetBeersByName(beerName);
             if (beerList != null && beerList.Count > 0)
             {
                 //Form a list of search results by formatting the PunkAPI beer list and adding matching ratings

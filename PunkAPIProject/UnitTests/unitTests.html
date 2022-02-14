@@ -77,7 +77,7 @@
 
         function find() {
             var partName = $('#beerName').val();
-            $.getJSON(uri + 'getratings/' + partName)
+            $.getJSON(uri + 'getratings?q=' + partName)
                 .done(function (data) {
                     $('#rating').text(JSON.stringify(data));
                 })

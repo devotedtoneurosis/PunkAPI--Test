@@ -7,7 +7,7 @@
 <h3>Searching Reviews</h3>
 <p>The API accepts one parameter in the query string of the request. The purpose of this parameter is to denote the name (or partial name) of the beer to search for. The public PunkAPI is used to retrieve all beers matching the search parameter.</p>
 
-/getratings/ThisBeer
+/getratings?q=ThisBeer
 
 <p>Sample output can be seen below:</p>
 [

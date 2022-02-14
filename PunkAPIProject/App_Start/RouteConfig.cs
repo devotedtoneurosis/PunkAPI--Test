@@ -15,8 +15,8 @@ namespace PunkAPIProject
 
             routes.MapRoute(
                 name: "Rating Query",
-                url: "{action}/{name}",
-                defaults: new { controller = "Beer", action = "GetRatings", name = UrlParameter.Optional }
+                url: "{action}",
+                defaults: new { controller = "Beer", action = "GetRatings" }
             );
 
             routes.MapRoute(
