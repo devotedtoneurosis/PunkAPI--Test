@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace PunkAPIProject.Filters
 {
@@ -19,10 +21,14 @@ namespace PunkAPIProject.Filters
 
         void IActionFilter.OnActionExecuting(ActionExecutingContext filterContext)
         {
-            string[] username = filterContext.HttpContext.Request.Params.GetValues("username");
+            StreamReader r = new StreamReader(HttpContext.Current.Request.InputStream);
+            r.BaseStream.Seek(0, SeekOrigin.Begin);
+            string bodyText = r.ReadToEnd();
+            Rating rating = JsonConvert.DeserializeObject<Rating>(bodyText);
+            
 
             //Check if the email matching an appropriately formed address, otherwise, notify the user.
-            if (Regex.IsMatch(username[0], emailRegex) == false)
+            if (Regex.IsMatch(rating.username, emailRegex) == false)
             {
                 filterContext.Result = new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Username is not a valid email address.");
             }

@@ -45,33 +45,49 @@
         });
 
         function validAdd() {
-            var jqxhr = $.post(uri + 'postrating/' + $('#beerId').val(), { username: 'test@test.com', rating: 4, comments: 'This one is quality!' })
-                .success(function () {
-                    $('#validAddResponse').text("success!");
-                })
-                .error(function () {
-                    $('#validAddResponse').text("failure");
-                });
+            var rev = { username: 'test@test.com', rating: 4, comments: 'This one is quality!' };
+            fetch(uri + 'postRating/' + $('#beerId').val(), {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(rev)
+            }).then(function() {
+                // handle the response
+                $('#validAddResponse').text("success!");
+              })
         }
 
         function invalidEmailAdd() {
-            var jqxhr = $.post(uri + 'postrating/' + $('#beerId').val(), { username: 'testtest.com', rating: 4, comments: 'This one is quality!' })
-                .success(function () {
-                    $('#invalidEmailResponse').text("success!");
-                })
-                .error(function () {
-                    $('#invalidEmailResponse').text("failure");
-                });
+            var rev = { username: 'testest.com', rating: 4, comments: 'This one is quality!' };
+            fetch(uri + 'postRating/' + $('#beerId').val(), {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(rev)
+            }).then(function () {
+                // handle the response
+                $('#validAddResponse').text("success!");
+            })
+
         }
 
         function invalidRatingAdd() {
-            var jqxhr = $.post(uri + 'postrating/' + $('#beerId').val(), { username: 'test@test.com', rating: 80, comments: 'This one is quality!' })
-                .success(function () {
-                    $('#invalidRatingResponse').text("success!");
-                })
-                .error(function () {
-                    $('#invalidRatingResponse').text("failure");
-                });
+            var rev = { username: 'test@test.com', rating: -2, comments: 'This one is quality!' };
+            fetch(uri + 'postRating/' + $('#beerId').val(), {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(rev)
+            }).then(function () {
+                // handle the response
+                $('#validAddResponse').text("success!");
+            })
         }
 
 

@@ -19,5 +19,16 @@ namespace PunkAPIProject
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_AuthenticateRequest(object sender, EventArgs e)
+        {
+            if (Context.Request.HttpMethod.Equals("OPTIONS"))
+            {
+                Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+                Response.AddHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                Response.StatusCode = (int)System.Net.HttpStatusCode.OK;
+                Context.ApplicationInstance.CompleteRequest();
+            }
+        }
     }
 }

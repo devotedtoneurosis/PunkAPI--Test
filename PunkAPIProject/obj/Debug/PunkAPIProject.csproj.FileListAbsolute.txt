@@ -161,3 +161,6 @@ C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\obj\Debug
 C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\obj\Debug\PunkAPIProject.csproj.CopyComplete
 C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\obj\Debug\PunkAPIProject.dll
 C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\obj\Debug\PunkAPIProject.pdb
+C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\bin\System.Web.Cors.dll
+C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\bin\System.Web.Http.Cors.dll
+C:\Users\Jason\source\repos\PunkAPIProject\PunkAPI-Test\PunkAPIProject\bin\System.Web.Http.Cors.xml

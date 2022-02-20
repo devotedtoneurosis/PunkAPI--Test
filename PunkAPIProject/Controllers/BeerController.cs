@@ -6,9 +6,11 @@ using System.Web.Mvc;
 using System.Net;
 using Newtonsoft.Json;
 using PunkAPIProject.Filters;
+using System.Web.Http.Cors;
 
 namespace PunkAPIProject.Controllers
 {
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     public class BeerController : Controller
     {
         RatingDB ratingDB;
